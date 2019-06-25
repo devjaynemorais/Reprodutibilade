@@ -1,0 +1,24 @@
+---
+title: "minha_replicacao"
+author: "devjaynemorais"
+date: "25 de junho de 2019"
+output: html_document
+---
+
+```{r setup}
+#install.packages("scifigure")
+library(scifigure)
+exps <- init_experiments(2)
+sci_figure(exps)   
+```
+
+```{r }
+exps <- init_experiments(2, c("Redmon et. al. (2016)", "Minha Replicação"))
+exps["analysis_plan", 1] <- "unobserved"
+
+exps[c("experimenter", "analyst", "estimate", "code", "hypothesis"), 2] <- "different"
+
+sci_figure(exps, hide_stages = c("population"))
+
+#replicate_figure()
+```
